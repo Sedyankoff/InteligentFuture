@@ -15,8 +15,11 @@
     font-weight: bold;
 }
 
-.btn-separator {
+.separator-right {
     margin-right: 10px;
+}
+.separator-left {
+    margin-left: 10px;
 }
 
 .bg-image{
