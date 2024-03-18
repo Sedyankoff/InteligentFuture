@@ -41,5 +41,18 @@
 }
 
 .navbar-nav .nav-item a:hover {
-    background-color: black;
+    background-color: #FD9C1A;
+}
+
+.nav .nav-item .nav-link {
+    background-color: #121B27;
+    color: #FD9C1A;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: black !important;
+}
+
+.footer-content i {
+    color: #FD9C1A;
 }
