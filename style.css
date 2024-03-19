@@ -23,11 +23,11 @@
 }
 
 .bg-image{
-    background-image: url('./images/bgint.png');
+    background-image: url('./images/bgint1.png');
     background-size: cover;
     margin: 0px;
     padding: 0px;
-    height: 65vh;
+    height: 55vh;
     width: 100%;
 }
 
@@ -38,6 +38,7 @@
 .navbar-nav .nav-item a {
     font-size: 18px;
     font-weight: bold;
+    margin: 3px;
 }
 
 .navbar-nav .nav-item a:hover {
@@ -55,4 +56,16 @@
 
 .footer-content i {
     color: #FD9C1A;
+}
+
+#login {
+    background-color: #FD9C1A;
+    border-color: #FD9C1A;
+    color: white;
+}
+
+#register {
+    background-color: blue;
+    color: white;
+    border-color: blue;
 }
