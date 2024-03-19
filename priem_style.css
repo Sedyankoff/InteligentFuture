@@ -102,3 +102,7 @@ main {
 .navbar {
     border-bottom: 5px solid #FD9C1A;
 }
+
+#logo img{
+    border: 5px solid #FD9C1A;
+}
