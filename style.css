@@ -101,8 +101,8 @@ main {
     font-size: 17px;
 }
 
-#heading-text h1 {
-    color:#FD9C1A;
+#heading-text {
+    color:#212529;
 }
 
 .navbar {
@@ -118,4 +118,19 @@ main {
 
 .row img{
     border: 5px solid #FD9C1A;
+}
+
+.row h1 {
+    border-bottom: 3px solid #FD9C1A;
+    padding: 10px;
+}
+
+#nav-main{
+    background-color: #FD9C1A;
+    color: #212529 !important;
+}
+
+#nav-main:hover{
+    color: white !important;
+    background-color: #212529;
 }

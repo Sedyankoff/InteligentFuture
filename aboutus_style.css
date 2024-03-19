@@ -90,3 +90,32 @@ main {
 .navbar {
     border-bottom: 5px solid #FD9C1A;
 }
+
+.row h2{
+    border-bottom: solid 3px #FD9C1A;
+    padding: 15px;
+}
+
+#trophy p{
+    text-align: left;
+    border-left: solid 3px #212529;
+    padding-left: 5px;
+}
+
+.row img {
+    border: solid 5px #FD9C1A;
+}
+
+#trophy-image img {
+    border: solid 5px #212529;
+}
+
+#nav-aboutus{
+    background-color: #FD9C1A;
+    color: #212529 !important;
+}
+
+#nav-aboutus:hover{
+    color: white !important;
+    background-color: #212529;
+}

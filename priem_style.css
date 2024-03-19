@@ -106,3 +106,13 @@ main {
 #logo img{
     border: 5px solid #FD9C1A;
 }
+
+#nav-priem{
+    background-color: #FD9C1A;
+    color: #212529 !important;
+}
+
+#nav-priem:hover{
+    color: white !important;
+    background-color: #212529;
+}
