@@ -73,14 +73,24 @@ main {
     color: #FD9C1A;
 }
 
-#login {
+#login:hover{
     background-color: #FD9C1A;
+    color: black;
+}
+
+#login {
+    background-color: #212529;
     border-color: #FD9C1A;
     color: white;
 }
 
 #register {
-    background-color: blue;
+    background-color: #212529;
     color: white;
-    border-color: blue;
+    border-color: #FD9C1A;
+}
+
+#register:hover {
+    background-color: #FD9C1A;
+    color: black;
 }
