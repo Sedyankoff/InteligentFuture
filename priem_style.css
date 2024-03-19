@@ -73,6 +73,10 @@ main {
     color: #FD9C1A;
 }
 
+.footer-content {
+    border-top: 5px solid #FD9C1A;
+}
+
 #login:hover{
     background-color: #FD9C1A;
     color: black;
@@ -93,4 +97,8 @@ main {
 #register:hover {
     background-color: #FD9C1A;
     color: black;
+}
+
+.navbar {
+    border-bottom: 5px solid #FD9C1A;
 }
