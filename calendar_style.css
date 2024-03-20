@@ -3,6 +3,7 @@
 
 main {
     background-color: #f2eee9;
+    padding: 30px;
 }
 
 #top-line{
@@ -36,6 +37,10 @@ main {
     width: 100%;
 }
 
+.navbar {
+    border-bottom: 5px solid #FD9C1A;
+}
+
 .navbar-nav{
     margin: 0px;
     padding: 0px;
@@ -59,8 +64,17 @@ main {
     color: black !important;
 }
 
+#nav-calendar{
+    background-color: #FD9C1A;
+    color: #212529 !important;
+}
+
 .footer-content i {
     color: #FD9C1A;
+}
+
+.footer-content {
+    border-top: 5px solid #FD9C1A;
 }
 
 #login:hover{
@@ -91,9 +105,11 @@ main {
 
 #calendar {
     max-width: 800px;
-    margin: 40px auto;
-    background: #fff;
+    margin: 0px;
+    background: #212529;
     padding: 15px;
+    border: 5px solid #FD9C1A;
+    color: #FD9C1A;
 }
 
 .fc-event {
