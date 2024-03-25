@@ -40,12 +40,38 @@ function login(event){
 }
 
 function topLine() {
+    const oldLogin = document.getElementById("login");
+    const oldRegister = document.getElementById("register");
+
     if(localStorage.getItem("isLogged") !== null) {
+        const loggedEmail = localStorage.getItem("isLogged");
         var loginButton = document.getElementById("login");
         loginButton.style.display = "none";
+        var registerButton = document.getElementById("register");
+        const userData = JSON.parse(localStorage.getItem(loggedEmail));
+        document.getElementById("logged").innerHTML = "Здравейте, " + userData.names + "!";
+        registerButton.style.border = "none";
+        registerButton.textContent = "Излизане";
+        registerButton.style.color = "#FD9C1A";
+
+        registerButton.onmouseover = function() {
+            this.style.backgroundColor = "red";
+            this.style.color = "white";
+        };
+        registerButton.onmouseout = function() {
+            this.style.backgroundColor = "#212529";
+            this.style.color = "#FD9C1A";
+        }
+
+        registerButton.onclick = function() {
+            localStorage.removeItem("isLogged");
+        };
+
         return true;
     }
     else {
+        document.getElementById("login") = oldLogin;
+        document.getElementById("register") = oldRegister;
         return false;
     }
 }

@@ -8,6 +8,11 @@ main {
     height: 60px;
 }
 
+#top-line .col-6:last-child {
+    display: flex;
+    align-items: center;
+}
+
 #title {
     font-size: 50px;
     font-family: "Audiowide";
