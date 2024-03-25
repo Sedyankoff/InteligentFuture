@@ -1,49 +1,33 @@
-window.onload = () => {
-    this.sessionStorage.setItem('email', 'stoil0878@gmail.com');
-    this.sessionStorage.setItem('password', 'danostane');
+function login(event){
+    event.preventDefault();
+    const email = document.getElementById("email-login").value;
+    const password = document.getElementById("password-login").value;
+    localStorage.setItem("");
 
-    var inputEmail = document.getElementById('email');
-    var inputPassword = document.getElementById('password');
-    var login = document.getElementById('login-button');
-    var form = document.getElementById('login');
-    form.onsubmit = () => { return false; }
+    const resultElement = document.getElementById("result-login");
 
-    login.onclick = () => {
+    if (email === "") {
+        resultElement.innerHTML = "Моля въведете имейл адрес!";
+        return false;
+    } else if (password === "") {
+        resultElement.innerHTML = "Моля въведете парола!";
+        return false;
+    }
 
-        if ((inputEmail.value != "") && (inputPassword.value != "")) {
-            if ((inputEmail.value == sessionStorage.getItem('email')) && (inputPassword.value == sessionStorage.getItem('password'))) {
-                form.onsubmit = () => { return true; }
-                document.cookie = "email=" + inputEmail.value;
-                document.cookie = "password=" + inputPassword.value;
-                window.location.href = "main.html";
-            } else {
-                if ((inputEmail.value != sessionStorage.getItem('email'))) {
-                    inputEmail.nextElementSibling.textContent = "Email DOESN'T match";
-                    setTimeout(() => {
-                        inputEmail.nextElementSibling.textContent = "";
-                    }, 2000);
-                    
-                }
-                if ((inputPassword.value != sessionStorage.getItem('password'))) {
-                    inputPassword.nextElementSibling.textContent = "Password DOESN'T match";
-                    setTimeout(() => {
-                        inputPassword.nextElementSibling.textContent = "";
-                    }, 2000);
-                }
-            }
-        } else {
-            if (inputEmail.value == "") {
-                inputEmail.nextElementSibling.textContent = "Email is empty";
-                setTimeout(() => {
-                    inputEmail.nextElementSibling.textContent = "";
-                }, 2000);
-            }
-            if (inputPassword.value == "") {
-                inputPassword.nextElementSibling.textContent = "Password is empty";
-                setTimeout(() => {
-                    inputPassword.nextElementSibling.textContent = "";
-                }, 2000);
-            }
+    const target = localStorage.getItem(email);
+    if (target === null) {
+        resultElement.innerHTML = "Този имейл не е регистриран!";
+        return false;
+    } else {
+        const storedUserData = JSON.parse(localStorage.getItem(email));
+        if (password === storedUserData.password) {
+            window.location.href = "main.html";
+            return true;
+        }
+        else {
+            resultElement.innerHTML = "Грешна парола!";
+            document.getElementById("password-login").value = "";
+            return false;
         }
     }
 }

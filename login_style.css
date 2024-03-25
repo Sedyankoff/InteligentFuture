@@ -77,6 +77,11 @@ h2 {
     text-align: center;
 }
 
+#result-login {
+    color: red;
+    font-style: italic;
+}
+
 @media (max-width: 450px) {
     .h-custom {
         height: 100%;

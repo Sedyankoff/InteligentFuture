@@ -1,10 +1,11 @@
-function validation(){
+function register(event){
+    event.preventDefault();
     const names = document.getElementById("names").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email-register").value;
+    const password = document.getElementById("password-register").value;
     const confirmPassword = document.getElementById("password-confirm").value;
 
-    const resultElement = document.getElementById("result");
+    const resultElement = document.getElementById("result-register");
 
     if (names === "") {
         resultElement.innerHTML = "Моля въведете Вашите имена!";
@@ -22,12 +23,18 @@ function validation(){
         resultElement.innerHTML = "Моля въведете парола!";
         return false;
     } else if (password.length < 6) {
+        document.getElementById("password-register").value = "";
+        document.getElementById("password-confirm").value = "";
         resultElement.innerHTML = "Паролата трябва да бъде поне 6 знака!";
         return false;
     } else if (confirmPassword === "") {
+        document.getElementById("password-register").value = "";
+        document.getElementById("password-confirm").value = "";
         resultElement.innerHTML = "Моля въведете повторно паролата!";
         return false;
     } else if (password !== confirmPassword) {
+        document.getElementById("password-register").value = "";
+        document.getElementById("password-confirm").value = "";
         resultElement.innerHTML = "Паролите Ви не съвпадат!";
         return false;
     }
@@ -44,9 +51,8 @@ function validation(){
         };
 
         localStorage.setItem(email, JSON.stringify(userData));
-
-        resultElement.innerHTML = "Успешна регистрация!";
         window.location.href = "main.html";
+
         return true;
     }
 }

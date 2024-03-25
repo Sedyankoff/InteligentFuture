@@ -81,6 +81,11 @@ h2 {
     color: #FD9C1A;
 }
 
+#result-register {
+    color: red;
+    font-style: italic;
+}
+
 @media (max-width: 450px) {
     .h-custom {
         height: 100%;
