@@ -28,12 +28,24 @@ function login(event){
         const storedUserData = JSON.parse(localStorage.getItem(email));
         if (password === storedUserData.password) {
             window.location.href = "main.html";
-            return true;
+            localStorage.setItem("isLogged", email);
+            return topLine();
         }
         else {
             resultElement.innerHTML = "Грешна парола!";
             document.getElementById("password-login").value = "";
             return false;
         }
+    }
+}
+
+function topLine() {
+    if(localStorage.getItem("isLogged") !== null) {
+        var loginButton = document.getElementById("login");
+        loginButton.style.display = "none";
+        return true;
+    }
+    else {
+        return false;
     }
 }

@@ -51,7 +51,7 @@ function register(event){
         };
 
         localStorage.setItem(email, JSON.stringify(userData));
-        window.location.href = "main.html";
+        window.location.href = "login.html";
 
         return true;
     }
