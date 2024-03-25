@@ -4,6 +4,7 @@
     background-color: #f2eee9;
     background-image: url("./images/login.png");
     border-top: 5px solid #FD9C1A;
+    height: 120vh;
 }
 
 .divider:after,

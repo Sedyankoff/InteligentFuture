@@ -4,6 +4,7 @@
     background-color: #f2eee9;
     background-image: url("./images/login.png");
     border-top: 5px solid #FD9C1A;
+    height: 100vh;
 }
 
 .divider:after,
@@ -25,12 +26,14 @@
     margin-left: 10px;
 }
 
-.footer-content i {
-    color: #FD9C1A;
+.footer {
+    width: 100%;
+    bottom: 0;
+    border-top: 5px solid #FD9C1A;
 }
 
-.footer-content {
-    border-top: 5px solid #FD9C1A;
+.footer i {
+    color: #FD9C1A;
 }
 
 #login-form {

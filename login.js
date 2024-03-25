@@ -2,7 +2,13 @@ function login(event){
     event.preventDefault();
     const email = document.getElementById("email-login").value;
     const password = document.getElementById("password-login").value;
-    localStorage.setItem("");
+
+    var admin = {
+        names: "Admin",
+        email: "admin@email",
+        password: "admin"
+    }
+    localStorage.setItem("admin@email", JSON.stringify(admin));
 
     const resultElement = document.getElementById("result-login");
 
