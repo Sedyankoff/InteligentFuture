@@ -53,6 +53,7 @@ function topLine() {
         registerButton.style.border = "none";
         registerButton.textContent = "Излизане";
         registerButton.style.color = "#FD9C1A";
+        registerButton.href = "main.html";
 
         registerButton.onmouseover = function() {
             this.style.backgroundColor = "red";
@@ -64,7 +65,7 @@ function topLine() {
         }
 
         registerButton.onclick = function() {
-            localStorage.removeItem("isLogged");
+            localStorage.removeItem("isLogged"); 
         };
 
         return true;
