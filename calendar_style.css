@@ -247,3 +247,9 @@ body {
     padding: 10px;
     margin: 10px;
 }
+
+.row h2 {
+    border-bottom: 3px solid #212529;
+    padding-bottom: 15px;
+    font-style: italic;
+}

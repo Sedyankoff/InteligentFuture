@@ -221,4 +221,14 @@ function daysInMonth(iMonth, iYear) {
     return 32 - new Date(iYear, iMonth, 32).getDate();
 }
 
+function isAdmin() {
+    let isLogged = localStorage.getItem("isLogged");
+    if(isLogged === "admin@email") {
+    }
+    else {
+        let eventSection = document.getElementById("event-section");
+        eventSection.remove();
+    }
+}
+
 showCalendar(currentMonth, currentYear);
