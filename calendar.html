@@ -60,6 +60,7 @@
                         <label style="display: flex; width: 100px; float: left;" for="eventDescription">Описание</label>
                         <input type="text" id="eventDescription" placeholder="Въведете описание" class="form-control mb-3">
                     </div>
+                    <p id="result-calendar"></p>
                     <button type="button" class="btn btn-lg" id="addEvent" onclick="addEvent()">Добави</button>
                 </div>
               <div id="reminder-section">
@@ -76,8 +77,8 @@
           <div class="col-sm-6" id="right">
               <h2 id="monthAndYear"></h2>
               <div class="button-container-calendar d-flex justify-content-between">
-                  <button id="previous"onclick="previous()">‹</button>
-                  <button id="next" onclick="next()">›</button>
+                  <button id="previous"onclick="previous()">◀</button>
+                  <button id="next" onclick="next()">▶</button>
               </div>
               <div class="container-fluid d-flex flex-column align-items-center justify-content-center">
                 <table class="table-calendar"

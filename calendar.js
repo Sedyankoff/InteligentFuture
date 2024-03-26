@@ -15,7 +15,20 @@ function addEvent() {
     let title = eventTitleInput.value;
     let description = eventDescriptionInput.value;
 
-    if (date && title) {
+    const resultElement = document.getElementById("result-calendar");
+
+    if (date === "") {
+        resultElement.innerHTML = "Моля въведете дата!";
+        return false;
+    } else if (title === "") {
+        resultElement.innerHTML = "Моля въведете заглавие!";
+        return false;
+    } else if (description === "") {
+        resultElement.innerHTML = "Моля въведете описание!";
+        return false;
+    }
+    else {
+        resultElement.innerHTML = "";
         let eventId = eventIdCounter++;
 
         events.push(

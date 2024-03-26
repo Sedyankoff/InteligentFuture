@@ -253,3 +253,8 @@ body {
     padding-bottom: 15px;
     font-style: italic;
 }
+
+#result-calendar {
+    color: red;
+    font-style: italic;
+}
