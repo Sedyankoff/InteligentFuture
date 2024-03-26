@@ -1,45 +1,23 @@
-/* General styling for the entire page */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2eee9; /* Changed to match main background color */
+    background-color: #f2eee9;
     margin: 0;
 }
 
-/* Main section styling */
-main {
-    background-color: #f2eee9;
-}
-
-/* Top line styling */
-#top-line {
-    height: 60px;
-}
-
-#top-line .col-6:last-child {
-    display: flex;
-    align-items: center;
-}
 
 /* Title and slogan styling */
 #title {
     font-size: 50px;
-    font-family: 'Audiowide', sans-serif; /* Updated font family */
-    color: white; /* Added to improve visibility */
+    font-family: 'Audiowide', sans-serif;
+    color: white;
 }
 
 #slogan {
     font-style: italic;
     font-size: 20px;
     font-weight: bold;
-    color: white; /* Added to improve visibility */
-}
-
-.separator-right {
-    margin-right: 10px;
-}
-
-.separator-left {
-    margin-left: 10px;
+    color: white;
 }
 
 /* Background image section */
@@ -50,25 +28,20 @@ main {
     padding: 0;
     height: 55vh;
     width: 100%;
-    color: white; /* Added to improve visibility */
+    color: white;
 }
 
 /* Navbar styling */
-.navbar-nav {
-    margin: 0;
-    padding: 0;
-}
-
 .navbar-nav .nav-item a {
     font-size: 18px;
     font-weight: bold;
     margin: 3px;
-    color: white; /* Added to improve visibility */
+    color: white;
 }
 
 .navbar-nav .nav-item a:hover {
     background-color: #FD9C1A;
-    color: black; /* Changed to improve visibility */
+    color: black;
 }
 
 .nav .nav-item .nav-link {
@@ -102,23 +75,15 @@ main {
     border-color: #FD9C1A;
 }
 
-/* Calendar section styling (moved from styles.css to here) */
-/* (These styles were not present in the provided styles.css) */
-/* Adjustments may be needed based on your design preferences */
-
-/* Calendar container */
 .container-calendar {
-    background: #ffffff;
+    background-color: #f2eee9;
     padding: 15px;
-    max-width: 900px;
-    margin: 0 auto;
     overflow: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-/* Event section styling */
 #event-section {
     padding: 10px;
     background: #f5f5f5;
@@ -126,18 +91,10 @@ main {
     border: 1px solid #ccc;
 }
 
-.container-calendar #left h1 {
-    color: green;
-    text-align: center;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 10px 0;
-}
-
-#event-section h3 {
-    color: green;
-    font-size: 18px;
-    margin: 0;
+#event-section label {
+    display: flex;
+    width: 100px;
+    float: left;
 }
 
 #event-section input[type="date"],
@@ -148,9 +105,17 @@ main {
 }
 
 #event-section button {
-    background: green;
-    color: white;
-    border: none;
+    background-color: #FD9C1A;
+    color: #121B27;
+    border-color: #212529;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#event-section button:hover {
+    background-color: #121212;
+    color: #FD9C1A;
+    border-color: #FD9C1A;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -161,12 +126,6 @@ main {
     background: #f5f5f5;
     margin: 20px 0;
     border: 1px solid #ccc;
-}
-
-#reminder-section h3 {
-    color: green;
-    font-size: 18px;
-    margin: 0;
 }
 
 #reminderList {
@@ -181,21 +140,36 @@ main {
 
 /* Style for the delete buttons */
 .delete-event {
-    background: rgb(237, 19, 19);
+    background:#FD9C1A;
+    border-radius: 12px;
+    color: #121212;
+    border: 1px solid #121212;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.delete-event:hover{
+    background:red;
     color: white;
+    cursor: pointer;
     border: none;
     padding: 5px 10px;
-    cursor: pointer;
     margin-left: 10px;
-    align-items: right;
 }
 
 /* Buttons in the calendar */
 .button-container-calendar button {
+    background: #FD9C1A;
+    color: #212529;
+    border: 1px solid #121B27;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.button-container-calendar button:hover {
     cursor: pointer;
-    background: green;
-    color: #fff;
-    border: 1px solid green;
+    background: #212529;
+    color: #FD9C1A;
+    border: 1px solid #FD9C1A;
     border-radius: 4px;
     padding: 5px 10px;
 }
@@ -214,37 +188,11 @@ main {
     vertical-align: top;
 }
 
-/* Date picker */
-.date-picker.selected {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    outline: 1px dashed #00BCD4;
-}
-
-.date-picker.selected span {
-    border-bottom: 2px solid currentColor;
-}
-
-/* Day-specific styling */
-.date-picker:nth-child(1) {
-    color: red; /* Sunday */
-}
-
-.date-picker:nth-child(6) {
-    color: green; /* Friday */
-}
-
 /* Hover effect for date cells */
 .date-picker:hover {
-    background-color: green;
-    color: white;
+    background-color: #212529;
+    color: #FD9C1A;
     cursor: pointer;
-}
-
-/* Header for month and year */
-#monthAndYear {
-    text-align: center;
-    margin-top: 0;
 }
 
 /* Navigation buttons */
@@ -263,18 +211,14 @@ main {
     float: right;
 }
 
-/* Footer styling */
 .footer-container-calendar {
     margin-top: 1em;
     border-top: 1px solid #dadada;
-    padding: 10px 0;
+    padding: 10px 
 }
-
-.footer-container-calendar select {
-    cursor: pointer;
-    background: #ffffff;
-    color: #585858;
-    border: 1px solid #bfc5c5;
-    border-radius: 3px;
-    padding: 5px 1em;
+.row h3 {
+    border-bottom: 3px solid #FD9C1A;
+    color: #121B27;
+    padding: 10px;
+    margin: 10px;
 }

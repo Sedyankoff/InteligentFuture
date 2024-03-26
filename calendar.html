@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width = device-width, initial-scale=1">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="calendar_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<link rel="icon" type="image/x-icon" href="./images/logoint.ico">
@@ -44,33 +44,27 @@
             </div>
 		</nav>
 		<main>
-      <!-- Main wrapper for the calendar application -->
-    <div class="wrapper text-center">
-      <div class="container-calendar">
-        <div class="row d-flex justify-content-center align-items-center p-4">
+      <div class="container-calendar row d-flex align-items-center justify-content-center text-center m-0">
           <div class="col-sm-6" id="left">
               <h1>Календар</h1>
-              <div class="container-fluid d-flex flex-column p-3" id="event-section">
-                  <h3>Добави събитие</h3>
-                  <label class="form-label" for="eventDate">Избери дата</label>
-                  <input type="date" id="eventDate" class="mb-3">
-                  <label class="form-label" for="eventTitle">Въведи заглавие</label>
-                  <input type="text"
-                      id="eventTitle"
-                      placeholder="Заглавие"
-                      class="mb-3">
-                  <label class="form-label" for="eventDescription">Въведи описание</label>
-                  <input type="text"
-                      id="eventDescription"
-                      placeholder="Описание"
-                      class="mb-3"> 
-              </div>
-              <button id="addEvent" onclick="addEvent()">
-                Добави
-              </button>
+                <div class="container-fluid p-3" id="event-section">
+                    <h3>Добави събитие</h3>
+                    <div class="form-group">
+                        <label style="display: flex; width: 100px; float: left;" for="eventDate">Дата</label>
+                        <input type="date" id="eventDate" class="form-control mb-3">
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; width: 100px; float: left;" for="eventTitle">Заглавие</label>
+                        <input type="text" id="eventTitle" placeholder="Въведете заглавие" class="form-control mb-3">
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; width: 100px; float: left;" for="eventDescription">Описание</label>
+                        <input type="text" id="eventDescription" placeholder="Въведете описание" class="form-control mb-3">
+                    </div>
+                    <button type="button" class="btn btn-lg" id="addEvent" onclick="addEvent()">Добави</button>
+                </div>
               <div id="reminder-section">
                   <h3>Предстоящи събития</h3>
-                  <!-- List to display reminders -->
                   <ul id="reminderList">
                       <li data-event-id="1">
                           <strong>Event Title</strong>
@@ -84,16 +78,10 @@
               </div>
           </div>
           <div class="col-sm-6" id="right">
-              <h3 id="monthAndYear"></h3>
+              <h2 id="monthAndYear"></h2>
               <div class="button-container-calendar d-flex justify-content-between">
-                  <button id="previous"
-                          onclick="previous()">
-                        ‹
-                    </button>
-                  <button id="next"
-                          onclick="next()">
-                        ›
-                    </button>
+                  <button id="previous"onclick="previous()">‹</button>
+                  <button id="next" onclick="next()">></button>
               </div>
               <div class="container-fluid d-flex flex-column align-items-center justify-content-center">
                 <table class="table-calendar"
@@ -105,31 +93,27 @@
                     <tbody id="calendar-body"></tbody>
                 </table>
                 <div class="footer-container-calendar">
-                    <label for="month">Jump To: </label>
+                    <label for="month">Отиди на: </label>
                     <!-- Dropdowns to select a specific month and year -->
                     <select id="month" onchange="jump()">
-                        <option value=0>Jan</option>
-                        <option value=1>Feb</option>
-                        <option value=2>Mar</option>
-                        <option value=3>Apr</option>
-                        <option value=4>May</option>
-                        <option value=5>Jun</option>
-                        <option value=6>Jul</option>
-                        <option value=7>Aug</option>
-                        <option value=8>Sep</option>
-                        <option value=9>Oct</option>
-                        <option value=10>Nov</option>
-                        <option value=11>Dec</option>
+                        <option value=0>Януари</option>
+                        <option value=1>Февруари</option>
+                        <option value=2>март</option>
+                        <option value=3>Април</option>
+                        <option value=4>Май</option>
+                        <option value=5>Юни</option>
+                        <option value=6>Юли</option>
+                        <option value=7>Август</option>
+                        <option value=8>Септември</option>
+                        <option value=9>Октомври</option>
+                        <option value=10>Ноември</option>
+                        <option value=11>Декември</option>
                     </select>
-                    <!-- Dropdown to select a specific year -->
                     <select id="year" onchange="jump()"></select>
                 </div>
               </div>
           </div>
-        </div>
-      </div>
   </div>
-  <!-- Include the JavaScript file for the calendar functionality -->
 		</main>
 		<footer class="mt-auto">
             <div class="footer-content text-center bg-dark text-white p-3">
