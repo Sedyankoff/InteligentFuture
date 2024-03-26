@@ -51,8 +51,7 @@ function deleteEvent(eventId) {
 }
 
 function displayReminders() {
-    if (localStorage.getItem("isLogged") === "admin@email") {
-        reminderList.innerHTML = "";
+    reminderList.innerHTML = "";
         for (let i = 0; i < events.length; i++) {
             let event = events[i];
             let eventDate = new Date(event.date);
@@ -65,38 +64,21 @@ function displayReminders() {
                     `- <strong>${event.title}</strong> - 
                 ${event.description} на
                 ${eventDate.toLocaleDateString()}`;
-    
-                let deleteButton =
+                
+                if (localStorage.getItem("isLogged") === "admin@email") {
+                    let deleteButton =
                     document.createElement("button");
-                deleteButton.className = "delete-event";
-                deleteButton.textContent = "Изтриване";
-                deleteButton.onclick = function () {
+                    deleteButton.className = "delete-event";
+                    deleteButton.textContent = "Изтриване";
+                    deleteButton.onclick = function () {
                     deleteEvent(event.id);
-                };
-    
-                listItem.appendChild(deleteButton);
+                    };
+                    listItem.appendChild(deleteButton);
+                }
+                
                 reminderList.appendChild(listItem);
             }
         }
-    }
-    else {
-        reminderList.innerHTML = "";
-        for (let i = 0; i < events.length; i++) {
-            let event = events[i];
-            let eventDate = new Date(event.date);
-            if (eventDate.getMonth() ===
-                currentMonth &&
-                eventDate.getFullYear() ===
-                currentYear) {
-                let listItem = document.createElement("li");
-                listItem.innerHTML =
-                    `- <strong>${event.title}</strong> - 
-                ${event.description} на
-                ${eventDate.toLocaleDateString()}`;
-                reminderList.appendChild(listItem);
-            }
-        }
-    } 
 }
 
 function generate_year_range(start, end) {
