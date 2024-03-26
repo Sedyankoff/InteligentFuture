@@ -51,32 +51,52 @@ function deleteEvent(eventId) {
 }
 
 function displayReminders() {
-    reminderList.innerHTML = "";
-    for (let i = 0; i < events.length; i++) {
-        let event = events[i];
-        let eventDate = new Date(event.date);
-        if (eventDate.getMonth() ===
-            currentMonth &&
-            eventDate.getFullYear() ===
-            currentYear) {
-            let listItem = document.createElement("li");
-            listItem.innerHTML =
-                `<strong>${event.title}</strong> - 
-            ${event.description} on 
-            ${eventDate.toLocaleDateString()}`;
-
-            let deleteButton =
-                document.createElement("button");
-            deleteButton.className = "delete-event";
-            deleteButton.textContent = "Delete";
-            deleteButton.onclick = function () {
-                deleteEvent(event.id);
-            };
-
-            listItem.appendChild(deleteButton);
-            reminderList.appendChild(listItem);
+    if (localStorage.getItem("isLogged") === "admin@email") {
+        reminderList.innerHTML = "";
+        for (let i = 0; i < events.length; i++) {
+            let event = events[i];
+            let eventDate = new Date(event.date);
+            if (eventDate.getMonth() ===
+                currentMonth &&
+                eventDate.getFullYear() ===
+                currentYear) {
+                let listItem = document.createElement("li");
+                listItem.innerHTML =
+                    `- <strong>${event.title}</strong> - 
+                ${event.description} на
+                ${eventDate.toLocaleDateString()}`;
+    
+                let deleteButton =
+                    document.createElement("button");
+                deleteButton.className = "delete-event";
+                deleteButton.textContent = "Изтриване";
+                deleteButton.onclick = function () {
+                    deleteEvent(event.id);
+                };
+    
+                listItem.appendChild(deleteButton);
+                reminderList.appendChild(listItem);
+            }
         }
     }
+    else {
+        reminderList.innerHTML = "";
+        for (let i = 0; i < events.length; i++) {
+            let event = events[i];
+            let eventDate = new Date(event.date);
+            if (eventDate.getMonth() ===
+                currentMonth &&
+                eventDate.getFullYear() ===
+                currentYear) {
+                let listItem = document.createElement("li");
+                listItem.innerHTML =
+                    `- <strong>${event.title}</strong> - 
+                ${event.description} на
+                ${eventDate.toLocaleDateString()}`;
+                reminderList.appendChild(listItem);
+            }
+        }
+    } 
 }
 
 function generate_year_range(start, end) {
@@ -222,12 +242,22 @@ function daysInMonth(iMonth, iYear) {
 }
 
 function isAdmin() {
-    let isLogged = localStorage.getItem("isLogged");
-    if(isLogged === "admin@email") {
-    }
-    else {
-        let eventSection = document.getElementById("event-section");
-        eventSection.remove();
+    var isLogged = localStorage.getItem("isLogged");
+    var reminderSection = document.getElementById("reminder-section");
+    var reminderList = document.getElementById("reminderList");
+
+    if (isLogged !== null) {
+        if (isLogged !== "admin@email") {
+            reminderList.style.textAlign = "left";
+            reminderList.style.padding = "10px";
+            reminderSection.style.height = "100vh";
+            document.getElementById("event-section").remove();
+        }
+    } else {
+        reminderList.style.textAlign = "left";
+            reminderList.style.padding = "10px";
+            reminderSection.style.height = "100vh";
+            document.getElementById("event-section").remove();
     }
 }
 
