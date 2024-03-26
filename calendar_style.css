@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 body {
     font-family: Arial, sans-serif;
@@ -5,22 +6,36 @@ body {
     margin: 0;
 }
 
+.separator-right {
+    margin-right: 10px;
+}
 
-/* Title and slogan styling */
+.separator-left {
+    margin-left: 10px;
+}
+
+#top-line{
+    height: 60px;
+}
+
+#top-line .col-6:last-child {
+    display: flex;
+    align-items: center;
+}
+
 #title {
     font-size: 50px;
     font-family: 'Audiowide', sans-serif;
-    color: white;
+    color: #212529;
 }
 
 #slogan {
     font-style: italic;
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: #212529;
 }
 
-/* Background image section */
 .bg-image {
     background-image: url('./images/bgint1.png');
     background-size: cover;
@@ -31,7 +46,10 @@ body {
     color: white;
 }
 
-/* Navbar styling */
+.navbar {
+    border-bottom: 5px solid #FD9C1A;
+}
+
 .navbar-nav .nav-item a {
     font-size: 18px;
     font-weight: bold;
@@ -53,7 +71,16 @@ body {
     color: black !important;
 }
 
-/* Footer styling */
+#nav-calendar{
+    background-color: #FD9C1A;
+    color: #212529 !important;
+}
+
+#nav-calendar:hover{
+    color: white !important;
+    background-color: #212529;
+}
+
 .footer-content i {
     color: #FD9C1A;
 }
