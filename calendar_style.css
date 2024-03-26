@@ -115,13 +115,14 @@ body {
     padding: 10px;
     background: #f5f5f5;
     margin: 20px 0;
-    border: 1px solid #ccc;
+    border: 3px solid #212529;
 }
 
 #event-section label {
     display: flex;
     width: 100px;
     float: left;
+    font-style: italic;
 }
 
 #event-section input[type="date"],
@@ -136,7 +137,7 @@ body {
     color: #121B27;
     border-color: #212529;
     padding: 5px 10px;
-    cursor: pointer;
+    font-weight: bold;
 }
 
 #event-section button:hover {
@@ -147,12 +148,11 @@ body {
     cursor: pointer;
 }
 
-/* Reminder section styling */
 #reminder-section {
     padding: 10px;
     background: #f5f5f5;
     margin: 20px 0;
-    border: 1px solid #ccc;
+    border: 3px solid #212529;
 }
 
 #reminderList {
@@ -165,7 +165,6 @@ body {
     font-size: 16px;
 }
 
-/* Style for the delete buttons */
 .delete-event {
     background:#FD9C1A;
     border-radius: 12px;
@@ -173,18 +172,18 @@ body {
     border: 1px solid #121212;
     padding: 5px 10px;
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .delete-event:hover{
     background:red;
     color: white;
     cursor: pointer;
-    border: none;
+    border: 1px solid red;
     padding: 5px 10px;
     margin-left: 10px;
 }
 
-/* Buttons in the calendar */
 .button-container-calendar button {
     background: #FD9C1A;
     color: #212529;
@@ -201,7 +200,6 @@ body {
     padding: 5px 10px;
 }
 
-/* Calendar table */
 .table-calendar {
     border-collapse: collapse;
     width: 100%;
@@ -215,14 +213,12 @@ body {
     vertical-align: top;
 }
 
-/* Hover effect for date cells */
 .date-picker:hover {
     background-color: #212529;
     color: #FD9C1A;
     cursor: pointer;
 }
 
-/* Navigation buttons */
 .button-container-calendar {
     position: relative;
     margin-bottom: 1em;
@@ -240,9 +236,11 @@ body {
 
 .footer-container-calendar {
     margin-top: 1em;
-    border-top: 1px solid #dadada;
-    padding: 10px 
+    border-top: 3px solid #FD9C1A;
+    padding: 10px;
+    font-weight: bold;
 }
+
 .row h3 {
     border-bottom: 3px solid #FD9C1A;
     color: #121B27;
