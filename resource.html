@@ -51,7 +51,6 @@
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" id="dropdown1">Лекции</button>
                             <div class="dropdown-content" id="dropdownContent">
-                                <button class="animated">Link 1</button>
                             </div>
                         </div>
                         <div class="dropdown">
@@ -102,10 +101,10 @@
                 </div>
                 <div class="col-sm-6 d-flex align-items-center justify-content-center m-0 text-center" id="right">
                     <div class="info-section">
-                        <h1>Programa</h1>
+                        <h1 id="chosenHeader"></h1>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <img src="./images/CyberSecurity.png" alt="" id="info-image" class="img-fluid rounded">
+                                    <img src="./images/CyberSecurity.png" alt="default" id="info-image" class="img-fluid rounded">
                                 </div>
                     
                                 <div class="col-sm-6" id="info-text">
@@ -142,7 +141,7 @@
                   </div>
                     <div id="teacher-section">
                         <h3>Учители</h3>
-                        <ul id="reminderList" class="d-flex align-items-start"></ul>
+                        <ul id="teacherList" class="d-flex align-items-start flex-column"></ul>
                     </div>
             </div>
                 <div class="col-sm-6" id="right">
@@ -156,17 +155,18 @@
                             <div class="col">
                                 <label for="eventCategory">Категория</label>
                                 <select class="form-select mb-3" id="eventCategory">
-                                    <option value="1">Category 1</option>
-                                    <option value="2">Category 2</option>
-                                    <option value="3">Category 3</option>
+                                    <option value="" disabled selected>Избери категория</option>
+                                    <option value="1">Лекции</option>
+                                    <option value="2">Упражнения</option>
+                                    <option value="3">Семинари</option>
+                                    <option value="4">Курсове</option>
+                                    <option value="5">Стаж</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <label for="eventTeacher">Преподавател</label>
                                 <select class="form-select mb-3" id="eventTeacher">
-                                    <option value="1">Teacher 1</option>
-                                    <option value="2">Teacher 2</option>
-                                    <option value="3">Teacher 3</option>
+                                    <option value="" disabled selected>Избери преподавател</option>
                                 </select>
                             </div>
                         </div>
@@ -186,19 +186,8 @@
                         <button type="button" class="btn btn-lg" id="addEvent" onclick="addEvent()">Добави</button>
                     </div>
                     <div id="event-info">
-                        <h3>Събития </h3>
-                        <table id="teacher-table" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Име</th>
-                                    <th>Дата</th>
-                                    <th>Учител</th>
-                                    <th>Категория</th>
-                                    <th>Описание</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                        <h3>Събития</h3>
+                        <ul id="eventList" class="d-flex align-items-start flex-column"></ul>
                     </div>
                 </div>
 		</main>

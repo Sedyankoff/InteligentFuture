@@ -304,3 +304,31 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 5px 10px;
     margin-left: 10px;
 }
+
+#teacher-section h3 {
+    border-bottom: 3px solid #FD9C1A;
+    padding-bottom: 10px;
+}
+
+#event-info h3 {
+    border-bottom: 3px solid #FD9C1A;
+    padding-bottom: 10px;
+}
+
+#result-event {
+    color: red;
+    font-style: italic;
+    padding-top: 10px;
+}
+
+#addEvent:hover {
+    background-color: #121212;
+    border: 1px solid #FD9C1A;
+    color: #FD9C1A;
+}
+
+#eventList li,
+#teacherList li {
+    margin: 5px 0;
+    font-size: 16px;
+}

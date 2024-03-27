@@ -377,3 +377,18 @@ function isAdmin() {
 }
 
 showCalendar(currentMonth, currentYear);
+
+function fillTeachersDropdown() {
+    var teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+    var teacherDropdown = document.getElementById("eventTeacher");
+
+    teachers.forEach(function(teacher) {
+        var option = document.createElement("option");
+        option.text = teacher.name;
+        teacherDropdown.add(option);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    fillTeachersDropdown();
+});
