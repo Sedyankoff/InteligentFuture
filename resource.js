@@ -83,37 +83,134 @@ function participate() {
 }
 
 function fillCategories() {
-    for (var i = 1; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        var value = localStorage.getItem(key);
-        
-        var event = JSON.parse(value);
+    var events = localStorage.getItem("events");
+    var event = JSON.parse(events);
+    for (var i = 0; i < event.length; i++) {
+        addButtonToDropdown(event[i]);
+    }
+}
 
-        if (key.startsWith("events")) {
-            var option = document.createElement("button");
-            option.className = "animated";
-            option.textContent = event.title;
-            option.onclick = function() {
-                document.getElementById("teacherInfo").innerHTML = "";
-                document.getElementById("startDateInfo").innerHTML = "";
-                document.getElementById("descriptionInfo").innerHTML = "";
-            };
+function addButtonToDropdown(event) {
+    var dropdownId = getDropdownId(event.category);
+    var dropdownContent = document.getElementById(dropdownId);
+    
+    var button = document.createElement("button");
+    button.className = "animated";
+    button.textContent = event.title;
+    button.onclick = function() {
+        document.getElementById("teacherInfo").innerHTML = "";
+        document.getElementById("startDateInfo").innerHTML = event.date;
+        document.getElementById("descriptionInfo").innerHTML = event.description;
+        dropdownContent.style.display = "none";
+    };
 
-            if (event.category === "Лекции") {
-                document.getElementById("dropdownContent").appendChild(option);
-            }
-            else if (event.category === "Упражнения") {
-                document.getElementById("dropdownContent1").appendChild(option);
-            }
-            else if (event.category === "Семинари") {
-                document.getElementById("dropdownContent2").appendChild(option);
-            }
-            else if (event.category === "Курсове") {
-                document.getElementById("dropdownContent3").appendChild(option);
-            }
-            else {
-                document.getElementById("dropdownContent4").appendChild(option);
-            }
+    dropdownContent.appendChild(button);
+}
+
+function getDropdownId(category) {
+    switch (category) {
+        case "Лекции":
+            return "dropdownContent";
+        case "Упражнения":
+            return "dropdownContent1";
+        case "Семинари":
+            return "dropdownContent2";
+        case "Курсове":
+            return "dropdownContent3";
+        case "Стаж":
+            return "dropdownContent4";
+        default:
+            return null;
+    }
+}
+
+document.addEventListener('click', function(event) {
+    var dropdowns = document.querySelectorAll('.dropdown-content');
+    var targetElement = event.target;
+
+    dropdowns.forEach(function(dropdown) {
+        var button = dropdown.previousElementSibling;
+        if (button.contains(targetElement)) {
+            return;
         }
+        if (!dropdown.contains(targetElement)) {
+            dropdown.style.display = 'none';
+        }
+    });
+});
+
+function addTeacher() {
+    var teacherName = document.getElementById('teacherName').value;
+    var teacherEmail = document.getElementById('teacherEmail').value;
+    var teacherPhone = document.getElementById('teacherPhone').value;
+    var result = document.getElementById("result-teacher");
+
+    if (teacherName === "") {
+        result.innerHTML = "Моля въведете име!";
+        return false;
+    } else if (teacherEmail === "") {
+        result.innerHTML = "Моля въведете имейл!";
+        return false;
+    } else if (teacherPhone === "") {
+        result.innerHTML = "Моля въведете телефон!";
+        return false;
+    }
+
+    var teacher = {
+        name: teacherName,
+        email: teacherEmail,
+        phone: teacherPhone
+    };
+
+    var teachers = JSON.parse(localStorage.getItem('teachers')) || [];
+    teachers.push(teacher);
+    localStorage.setItem('teachers', JSON.stringify(teachers));
+
+    document.getElementById('teacherName').value = '';
+    document.getElementById('teacherEmail').value = '';
+    document.getElementById('teacherPhone').value = '';
+    displayTeachers();
+}
+
+fillCategories();
+
+function displayTeachers() {
+    const reminderList = document.getElementById("reminderList");
+
+    reminderList.innerHTML = "";
+
+    const teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+
+    teachers.forEach((teacher) => {
+        let listItem = document.createElement("li");
+        listItem.innerHTML =
+            `<strong>${teacher.name}</strong> - 
+            Email: ${teacher.email}, 
+            Phone: ${teacher.phone}`;
+
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete-button";
+        deleteButton.onclick = function () {
+            deleteTeacher(teacher.id);
+            listItem.remove();
+        };
+
+        listItem.appendChild(deleteButton);
+
+        reminderList.appendChild(listItem);
+    });
+}
+
+displayTeachers();
+
+function deleteTeacher(teacherId) {
+    let teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+
+    const index = teachers.findIndex((teacher) => teacher.id === teacherId);
+
+    if (index !== -1) {
+        teachers.splice(index, 1);
+        localStorage.setItem("teachers", JSON.stringify(teachers));
     }
 }

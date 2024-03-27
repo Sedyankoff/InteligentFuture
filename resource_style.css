@@ -280,3 +280,27 @@ input[type="number"]::-webkit-outer-spin-button {
     padding-top: 20px;
     font-style: italic;
 }
+
+#result-teacher {
+    color: red;
+    font-style: italic;
+}
+
+.delete-button {
+    background:#FD9C1A;
+    border-radius: 12px;
+    color: #121212;
+    border: 1px solid #121212;
+    padding: 5px 10px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.delete-button:hover{
+    background:red;
+    color: white;
+    cursor: pointer;
+    border: 1px solid red;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
