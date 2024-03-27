@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2eee9;
+    margin: 0;
+}
+
+.separator-right {
+    margin-right: 10px;
+}
+
+.separator-left {
+    margin-left: 10px;
+}
+
+#top-line{
+    height: 60px;
+}
+
+#top-line .col-6:last-child {
+    display: flex;
+    align-items: center;
+}
+
+#title {
+    font-size: 50px;
+    font-family: 'Audiowide', sans-serif;
+    color: #212529;
+}
+
+#slogan {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+    color: #212529;
+}
+
+.bg-image {
+    background-image: url('./images/bgint1.png');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 55vh;
+    width: 100%;
+    color: white;
+}
+
+.navbar {
+    border-bottom: 5px solid #FD9C1A;
+}
+
+.navbar-nav .nav-item a {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 3px;
+    color: white;
+}
+
+.navbar-nav .nav-item a:hover {
+    background-color: #FD9C1A;
+    color: black;
+}
+
+.nav .nav-item .nav-link {
+    background-color: #121B27;
+    color: #FD9C1A;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: black !important;
+}
+
+#nav-resource{
+    background-color: #FD9C1A;
+    color: #212529 !important;
+}
+
+#nav-resource:hover{
+    color: white !important;
+    background-color: #212529;
+}
+
+.footer-content i {
+    color: #FD9C1A;
+}
+
+.footer-content {
+    border-top: 5px solid #FD9C1A;
+}
+
+#login:hover,
+#register:hover {
+    background-color: #FD9C1A;
+    color: black;
+}
+
+#login,
+#register {
+    background-color: #212529;
+    color: white;
+    border-color: #FD9C1A;
+}
