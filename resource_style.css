@@ -261,3 +261,16 @@ input[type="number"]::-webkit-outer-spin-button {
 .animated:hover {
     background-color: #e0dbd5;
 }
+
+#library {
+    width: 100%;
+    text-align: left;
+}
+
+#libraryAI:hover,
+#libraryTech:hover,
+#libraryBook:hover {
+    background-color: #FD9C1A;
+    border: 1px solid #121212;
+    color: #121212;
+}
