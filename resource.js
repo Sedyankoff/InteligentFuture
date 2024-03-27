@@ -55,3 +55,66 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function isAdmin() {
+    var isLogged = localStorage.getItem("isLogged");
+
+    if (isLogged !== null) {
+        if (isLogged !== "admin@email") {
+            document.getElementById("teacheradd-section").remove();
+            document.getElementById("teacher-section").remove();
+            document.getElementById("eventadd-section").remove();
+            document.getElementById("event-info").remove();
+        }
+    } else {
+        document.getElementById("teacheradd-section").remove();
+        document.getElementById("teacher-section").remove();
+        document.getElementById("eventadd-section").remove();
+        document.getElementById("event-info").remove();
+    }
+}
+
+function participate() {
+    if (localStorage.getItem("isLogged") !== null) {
+        document.getElementById("result-resource").innerHTML = "Успешно записване!";
+    } else {
+        window.location.href = "login.html";
+    }
+}
+
+function fillCategories() {
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key);
+        
+        var event = JSON.parse(value);
+
+        if (key.startsWith("events")) {
+            var option = document.createElement("button");
+            option.className = "animated";
+            option.textContent = event.title;
+            option.onclick = function() {
+                document.getElementById("info-image").
+                document.getElementById("teacherInfo").innerHTML = "";
+                document.getElementById("startDateInfo").innerHTML = "";
+                document.getElementById("descriptionInfo").innerHTML = "";
+            };
+
+            if (event.category === "Лекции") {
+                document.getElementById("dropdownContent").appendChild(option);
+            }
+            else if (event.category === "Упражнения") {
+                document.getElementById("dropdownContent1").appendChild(option);
+            }
+            else if (event.category === "Семинари") {
+                document.getElementById("dropdownContent2").appendChild(option);
+            }
+            else if (event.category === "Курсове") {
+                document.getElementById("dropdownContent3").appendChild(option);
+            }
+            else {
+                document.getElementById("dropdownContent4").appendChild(option);
+            }
+        }
+    }
+}
