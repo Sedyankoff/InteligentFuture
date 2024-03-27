@@ -4,6 +4,13 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f2eee9;
     margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+    background-color: #f2eee9;
+    margin: 0;
+    padding: 0;
 }
 
 .separator-right {
@@ -34,6 +41,11 @@ body {
     font-size: 20px;
     font-weight: bold;
     color: #212529;
+}
+
+#category {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .bg-image {
@@ -187,8 +199,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .dropdown {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
 }
 
 .dropdown-content {
