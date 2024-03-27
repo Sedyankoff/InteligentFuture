@@ -101,3 +101,88 @@ body {
     color: white;
     border-color: #FD9C1A;
 }
+
+.info-section{
+    padding: 10px;
+    background: #f5f5f5;
+    margin: 20px 0;
+    border: 3px solid #212529;
+}
+.info-section h1{
+    border-bottom: 3px solid #FD9C1A;
+    padding-bottom: 15px;
+    font-style: italic;
+}
+
+#info-image {    
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 300px;
+}
+
+#participate-button{
+    width: calc(100% - 30px);
+    font-weight: bold;
+    background: #FD9C1A;
+    color: #212529;
+    border: 1px solid #121B27;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 15px;
+}
+
+#participate-button:hover{
+    cursor: pointer;
+    background: #212529;
+    color: #FD9C1A;
+    border: 1px solid #FD9C1A;
+}
+
+#teacheradd-section {
+    padding: 10px;
+    background: #f5f5f5;
+    margin: 20px 0;
+    border: 3px solid #212529;
+}
+
+#teacheradd-section label {
+    display: flex;
+    width: 100px;
+    float: left;
+    font-style: italic;
+}
+
+#teacheradd-section input {
+    margin: 10px 0;
+    padding: 5px;
+    width: 80%;
+}
+
+#teacheradd-section button {
+    background-color: #FD9C1A;
+    color: #121B27;
+    border-color: #212529;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+#teacheradd-section button:hover {
+    background-color: #121212;
+    color: #FD9C1A;
+    border-color: #FD9C1A;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
