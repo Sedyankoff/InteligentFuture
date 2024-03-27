@@ -31,7 +31,7 @@ function addEvent() {
         resultElement.innerHTML = "Моля изберете категория!";
         return false;
     }else if (teacher === "Избери преподавател") {
-        resultElement.innerHTML = "Моля изберете учител!";
+        resultElement.innerHTML = "Моля изберете преподавател!";
         return false;
     }else if (title === "") {
         resultElement.innerHTML = "Моля въведете заглавие!";

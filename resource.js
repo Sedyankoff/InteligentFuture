@@ -83,7 +83,7 @@ function participate() {
 }
 
 function fillCategories() {
-    for (var i = 0; i < localStorage.length; i++) {
+    for (var i = 1; i < localStorage.length; i++) {
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
         
@@ -94,7 +94,6 @@ function fillCategories() {
             option.className = "animated";
             option.textContent = event.title;
             option.onclick = function() {
-                document.getElementById("info-image").
                 document.getElementById("teacherInfo").innerHTML = "";
                 document.getElementById("startDateInfo").innerHTML = "";
                 document.getElementById("descriptionInfo").innerHTML = "";
