@@ -48,20 +48,49 @@
           <div class="col-sm-6" id="left">
                 <div class="container-fluid p-3" id="event-section">
                     <h3>Добави събитие</h3>
-                    <div class="form-group">
-                        <label style="display: flex; width: 100px; float: left;" for="eventDate">Дата</label>
-                        <input type="date" id="eventDate" class="form-control mb-3">
-                    </div>
-                    <div class="form-group">
-                        <label style="display: flex; width: 100px; float: left;" for="eventTitle">Заглавие</label>
-                        <input type="text" id="eventTitle" placeholder="Въведете заглавие" class="form-control mb-3">
-                    </div>
-                    <div class="form-group">
-                        <label style="display: flex; width: 100px; float: left;" for="eventDescription">Описание</label>
-                        <input type="text" id="eventDescription" placeholder="Въведете описание" class="form-control mb-3">
-                    </div>
-                    <p id="result-calendar"></p>
-                    <button type="button" class="btn btn-lg" id="addEvent" onclick="addEvent()">Добави</button>
+                        <div class="form-group">
+                            <label for="eventDate">Дата</label>
+                            <input type="date" id="eventDate" class="form-control mb-3">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="eventCategory">Категория</label>
+                                <select class="form-select mb-3" id="eventCategory">
+                                    <option value="" selected disabled>Избери категория</option>
+                                    <option value="1">Лекции</option>
+                                    <option value="2">Упражнение</option>
+                                    <option value="3">Семинари</option>
+                                    <option value="4">Курсове</option>
+                                    <option value="5">Стаж</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="eventTeacher">Преподавател</label>
+                                <select class="form-select mb-3" id="eventTeacher">
+                                    <option value="" selected disabled>Избери преподавател</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTitle">Заглавие</label>
+                            <input type="text" id="eventTitle" placeholder="Въведете заглавие" class="form-control mb-3">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDescription">Описание</label>
+                            <input type="text" id="eventDescription" placeholder="Въведете описание" class="form-control mb-3">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imageInput">Снимка</label>
+                            <input type="file" id="imageInput" accept="image/*">
+
+                        </div>
+                        
+                        <p id="result-event"></p>
+                        <button type="button" class="btn btn-lg" id="addEvent" onclick="addEvent()">Добави</button>
                 </div>
               <div id="reminder-section">
                   <h3>Предстоящи събития</h3>

@@ -7,6 +7,10 @@ let eventTitleInput =
     document.getElementById("eventTitle");
 let eventDescriptionInput =
     document.getElementById("eventDescription");
+let eventCategoryInput =
+    document.getElementById("eventCategory");
+let eventTeacherInput =
+    document.getElementById("eventTeacher");
 let reminderList =
     document.getElementById("reminderList");
 
@@ -14,13 +18,22 @@ function addEvent() {
     let date = eventDateInput.value;
     let title = eventTitleInput.value;
     let description = eventDescriptionInput.value;
+    let imageInput = document.getElementById("imageInput");
+    let category = eventCategoryInput.options[eventCategoryInput.selectedIndex].textContent;
+    let teacher = eventTeacherInput.options[eventTeacherInput.selectedIndex].textContent;
 
-    const resultElement = document.getElementById("result-calendar");
+    const resultElement = document.getElementById("result-event");
 
     if (date === "") {
         resultElement.innerHTML = "Моля въведете дата!";
         return false;
-    } else if (title === "") {
+    }else if (category === "Избери категория") {
+        resultElement.innerHTML = "Моля изберете категория!";
+        return false;
+    }else if (teacher === "Избери преподавател") {
+        resultElement.innerHTML = "Моля изберете учител!";
+        return false;
+    }else if (title === "") {
         resultElement.innerHTML = "Моля въведете заглавие!";
         return false;
     } else if (description === "") {
@@ -35,33 +48,140 @@ function addEvent() {
             {
                 id: eventId, date: date,
                 title: title,
-                description: description
+                description: description,
+                category: category,
+                teacher: teacher
             }
         );
 
         localStorage.setItem("eventIdCounter", eventIdCounter);
         localStorage.setItem("events", JSON.stringify(events));
 
+        let imageFile = imageInput.files[0];
+        if (imageFile) {
+                saveImageToIndexedDB(imageFile, eventId)
+            .then(message => {
+                console.log(message);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+
         showCalendar(currentMonth, currentYear);
         eventDateInput.value = "";
         eventTitleInput.value = "";
         eventDescriptionInput.value = "";
+        eventCategoryInput.value = "";
+        eventTeacherInput.value = "";
+        imageInput.value = "";
         displayReminders();
     }
 }
 
 function deleteEvent(eventId) {
-    let eventIndex =
-        events.findIndex((event) =>
-            event.id === eventId);
+    let eventIndex = events.findIndex((event) => event.id === eventId);
 
     if (eventIndex !== -1) {
         events.splice(eventIndex, 1);
+        
+        eventIdCounter--;
+
         localStorage.setItem("events", JSON.stringify(events));
+        localStorage.setItem("eventIdCounter", eventIdCounter);
+
+        deleteImageFromIndexedDB(eventId);
+
         showCalendar(currentMonth, currentYear);
         displayReminders();
     }
 }
+
+function saveImageToIndexedDB(imageFile, eventId) {
+    return new Promise((resolve, reject) => {
+        let request = indexedDB.open("ImageDataDB", 1);
+
+        request.onerror = function(event) {
+            reject("IndexedDB error: " + event.target.errorCode);
+        };
+
+        request.onsuccess = async function(event) {
+            let db = event.target.result;
+            let transaction = db.transaction(["images"], "readwrite");
+            let objectStore = transaction.objectStore("images");
+
+            let blob = new Blob([imageFile], { type: imageFile.type });
+
+            try {
+                await putObject(objectStore, blob, eventId);
+                resolve("Image added to IndexedDB: " + eventId);
+            } catch (error) {
+                reject("Error adding image to IndexedDB: " + error);
+            }
+        };
+
+        request.onupgradeneeded = function(event) {
+            let db = event.target.result;
+            db.createObjectStore("images", { autoIncrement: true });
+        };
+    });
+}
+
+function deleteImageFromIndexedDB(eventId) {
+    let request = indexedDB.open("ImageDataDB", 1);
+
+    request.onerror = function(event) {
+        console.error("IndexedDB error:", event.target.errorCode);
+    };
+
+    request.onsuccess = function(event) {
+        let db = event.target.result;
+        let transaction = db.transaction(["images"], "readwrite");
+        let objectStore = transaction.objectStore("images");
+        
+        let deleteRequest = objectStore.delete(eventId);
+        
+        deleteRequest.onsuccess = function(event) {
+            console.log("Image deleted from IndexedDB:", eventId);
+        };
+        
+        deleteRequest.onerror = function(event) {
+            console.error("Error deleting image from IndexedDB:", event.target.error);
+        };
+    };
+}
+
+function putObject(objectStore, blob, eventId) {
+    return new Promise((resolve, reject) => {
+        let putRequest = objectStore.put(blob, eventId);
+        putRequest.onsuccess = function(event) {
+            resolve();
+        };
+        putRequest.onerror = function(event) {
+            reject(event.target.error);
+        };
+    });
+}
+
+
+function populateTeachers() {
+    let teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+    eventTeacherInput.innerHTML = "";
+
+    let placeholderOption = document.createElement("option");
+    placeholderOption.value = "";
+    placeholderOption.textContent = "Избери преподавател";
+    placeholderOption.disabled = true;
+    placeholderOption.selected = true;
+    eventTeacherInput.appendChild(placeholderOption);
+
+    teachers.forEach(teacher => {
+        let option = document.createElement("option");
+        option.textContent = teacher.name; // Assuming teacher object has a 'name' property
+        eventTeacherInput.appendChild(option);
+    });
+}
+
 
 function displayReminders() {
     reminderList.innerHTML = "";

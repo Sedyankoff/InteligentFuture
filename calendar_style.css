@@ -254,7 +254,8 @@ body {
     font-style: italic;
 }
 
-#result-calendar {
+#result-event {
     color: red;
     font-style: italic;
+    padding-top: 10px;
 }
