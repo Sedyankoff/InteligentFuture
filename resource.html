@@ -47,7 +47,46 @@
         <div class="row d-flex align-items-center justify-content-center text-center m-0">
             <div class="row">
                 <div class="col-sm-6" id="left">
-            
+                    <div class="dropdown mb-4">
+                        <button class="btn btn-outline-success dropdown-toggle" id="dropdown1">Dropdown</button>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <a href="#" class="animated">Link 1</a>
+                            <a href="#" class="animated">Link 2</a>
+                            <a href="#" class="animated">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown mb-4">
+                        <button class="btn btn-outline-success dropdown-toggle" id="dropdown2">Dropdown</button>
+                        <div class="dropdown-content" id="dropdownContent1">
+                            <a href="#" class="animated">Link 1</a>
+                            <a href="#" class="animated">Link 2</a>
+                            <a href="#" class="animated">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown mb-4">
+                        <button class="btn btn-outline-success dropdown-toggle" id="dropdown3">Dropdown</button>
+                        <div class="dropdown-content" id="dropdownContent2">
+                            <a href="#" class="animated">Link 1</a>
+                            <a href="#" class="animated">Link 2</a>
+                            <a href="#" class="animated">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown mb-4">
+                        <button class="btn btn-outline-success dropdown-toggle" id="dropdown4">Dropdown</button>
+                        <div class="dropdown-content" id="dropdownContent3">
+                            <a href="#" class="animated">Link 1</a>
+                            <a href="#" class="animated">Link 2</a>
+                            <a href="#" class="animated">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-success dropdown-toggle" id="dropdown5">Dropdown</button>
+                        <div class="dropdown-content" id="dropdownContent4">
+                            <a href="#" class="animated">Link 1</a>
+                            <a href="#" class="animated">Link 2</a>
+                            <a href="#" class="animated">Link 3</a>
+                        </div>
+                    </div>        
                 </div>
                 <div class="col-sm-6" id="right">
                     <div class="info-section">
@@ -67,7 +106,8 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex align-items-center justify-content-center text-center m-0" id="c-calendar">
+        
+        <div class="row d-flex align-items-center justify-content-center text-center m-0">
             <div class="col-sm-6" id="left">
                   <div class="container-fluid p-3" id="teacheradd-section">
                       <h3>Добави учител</h3>
@@ -102,7 +142,7 @@
                     </div>
             </div>
                 <div class="col-sm-6" id="right">
-                    <div class="container-fluid p-3" id="eventAdd-section">
+                    <div class="container-fluid p-3" id="eventadd-section">
                         <h3>Добави събитие</h3>
                         <div class="form-group">
                             <label for="eventDate">Дата</label>
@@ -136,6 +176,21 @@
                         </div>
                         <p id="result-event"></p>
                         <button type="button" class="btn btn-lg" id="addEvent" onclick="addEvent()">Добави</button>
+                    </div>
+                    <div id="event-info">
+                        <h3>Събития </h3>
+                        <table id="teacher-table" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Име</th>
+                                    <th>Дата</th>
+                                    <th>Учител</th>
+                                    <th>Категория</th>
+                                    <th>Описание</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
                 </div>
         </div>

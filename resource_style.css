@@ -139,7 +139,7 @@ body {
     color: #FD9C1A;
     border: 1px solid #FD9C1A;
 }
-
+#eventadd-section,
 #teacheradd-section {
     padding: 10px;
     background: #f5f5f5;
@@ -147,6 +147,7 @@ body {
     border: 3px solid #212529;
 }
 
+#eventadd-section label,
 #teacheradd-section label {
     display: flex;
     width: 100px;
@@ -154,12 +155,14 @@ body {
     font-style: italic;
 }
 
+#eventadd-section input,
 #teacheradd-section input {
     margin: 10px 0;
     padding: 5px;
     width: 80%;
 }
 
+#eventadd-section button,
 #teacheradd-section button {
     background-color: #FD9C1A;
     color: #121B27;
@@ -183,6 +186,29 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
+.dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-in-out;
 }
