@@ -86,11 +86,22 @@ function participate() {
 }
 
 function fillCategories() {
-    var events = localStorage.getItem("events");
-    var event = JSON.parse(events);
-    for (var i = 0; i < event.length; i++) {
-        addButtonToDropdown(event[i]);
-    }
+    var events = JSON.parse(localStorage.getItem("events")) || [];
+    var dropdownContent = document.getElementById("dropdownContent");
+    var dropdownContent1 = document.getElementById("dropdownContent1");
+    var dropdownContent2 = document.getElementById("dropdownContent2");
+    var dropdownContent3 = document.getElementById("dropdownContent3");
+    var dropdownContent4 = document.getElementById("dropdownContent4");
+
+    dropdownContent.innerHTML = "";
+    dropdownContent1.innerHTML = "";
+    dropdownContent2.innerHTML = "";
+    dropdownContent3.innerHTML = "";
+    dropdownContent4.innerHTML = "";
+
+    events.forEach(function(event) {
+        addButtonToDropdown(event);
+    });
 }
 
 function getImageFromIndexedDB(eventId) {
@@ -141,9 +152,9 @@ function addButtonToDropdown(event) {
         document.getElementById("startDateInfo").innerHTML = event.date;
         document.getElementById("descriptionInfo").innerHTML = event.description;
         dropdownContent.style.display = "none";
-
+    
         var infoImage = document.getElementById("info-image");
-
+    
         getImageFromIndexedDB(event.id)
             .then(imageData => {
                 infoImage.src = URL.createObjectURL(imageData);
@@ -274,8 +285,8 @@ function deleteTeacher(teacherId) {
         defaultOption.disabled = true;
         defaultOption.selected = true;
         document.getElementById("eventTeacher").appendChild(defaultOption);
-        fillTeachersDropdown();
     }
+    fillTeachersDropdown();
     displayTeachers();
 }
 
@@ -322,10 +333,10 @@ function deleteEvent(eventId) {
         localStorage.setItem("eventIdCounter", eventIdCounter);
 
         deleteImageFromIndexedDB(eventId);
-
-        fillCategories();
-        displayEvents();
     }
+
+    fillCategories();
+    displayEvents();
 }
 
 function deleteImageFromIndexedDB(eventId) {
@@ -413,6 +424,7 @@ function addEvent() {
         document.getElementById("eventTeacher").value = "";
         document.getElementById("imageInput").value = "";
         fillCategories();
+        fillTeachersDropdown();
         displayEvents();
     }
 }
@@ -451,9 +463,29 @@ function saveImageToIndexedDB(imageFile, eventId) {
     });
 }
 
+function putObject(objectStore, blob, eventId) {
+    return new Promise((resolve, reject) => {
+        let putRequest = objectStore.put(blob, eventId);
+        putRequest.onsuccess = function(event) {
+            resolve();
+        };
+        putRequest.onerror = function(event) {
+            reject(event.target.error);
+        };
+    });
+}
+
 function fillTeachersDropdown() {
     var teachers = JSON.parse(localStorage.getItem("teachers")) || [];
     var teacherDropdown = document.getElementById("eventTeacher");
+
+    teacherDropdown.innerHTML = "";
+
+    var placeholderOption = document.createElement("option");
+    placeholderOption.text = "Избери преподавател";
+    placeholderOption.disabled = true;
+    placeholderOption.selected = true;
+    teacherDropdown.appendChild(placeholderOption);
 
     teachers.forEach(function(teacher) {
         var option = document.createElement("option");

@@ -11,6 +11,9 @@ main {
     background-color: #f2eee9;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .separator-right {
