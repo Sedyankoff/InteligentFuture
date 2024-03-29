@@ -104,7 +104,7 @@ function fillCategories() {
     });
 }
 
-function getImageFromIndexedDB(eventId) {
+function getImageFromIndexedDB(eventId){
     return new Promise((resolve, reject) => {
         let request = indexedDB.open("ImageDataDB", 1);
 
@@ -114,26 +114,21 @@ function getImageFromIndexedDB(eventId) {
 
         request.onsuccess = function(event) {
             let db = event.target.result;
-            
-            if (!db.objectStoreNames.contains("images")) {
-                reject("Object store 'images' not found");
-                return;
-            }
-            
             let transaction = db.transaction(["images"], "readonly");
             let objectStore = transaction.objectStore("images");
             let getRequest = objectStore.get(eventId);
 
             getRequest.onsuccess = function(event) {
-                if (event.target.result) {
-                    resolve(event.target.result.imageData);
+                let imageData = event.target.result;
+                if (imageData) {
+                    resolve(imageData);
                 } else {
-                    reject("Image not found in IndexedDB");
+                    reject("Image data not found for eventId: " + eventId);
                 }
             };
 
             getRequest.onerror = function(event) {
-                reject("Error getting image from IndexedDB: " + event.target.error);
+                reject("Error fetching image data from IndexedDB: " + event.target.error);
             };
         };
     });
@@ -152,9 +147,9 @@ function addButtonToDropdown(event) {
         document.getElementById("startDateInfo").innerHTML = event.date;
         document.getElementById("descriptionInfo").innerHTML = event.description;
         dropdownContent.style.display = "none";
-    
+        
         var infoImage = document.getElementById("info-image");
-    
+        
         getImageFromIndexedDB(event.id)
             .then(imageData => {
                 infoImage.src = URL.createObjectURL(imageData);
@@ -167,6 +162,7 @@ function addButtonToDropdown(event) {
 
     dropdownContent.appendChild(button);
 }
+
 
 function getDropdownId(category) {
     switch (category) {

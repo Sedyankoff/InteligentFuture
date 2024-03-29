@@ -2,9 +2,9 @@
 
 #main {
     background-color: #f2eee9;
-    background-image: url("./images/login.png");
+    background-image: url("../images/login.png");
     border-top: 5px solid #FD9C1A;
-    height: 100vh;
+    height: 120vh;
 }
 
 .divider:after,
@@ -26,17 +26,15 @@
     margin-left: 10px;
 }
 
-.footer {
-    width: 100%;
-    bottom: 0;
-    border-top: 5px solid #FD9C1A;
-}
-
-.footer i {
+.footer-content i {
     color: #FD9C1A;
 }
 
-#login-form {
+.footer-content {
+    border-top: 5px solid #FD9C1A;
+}
+
+#register-form {
     background-color: #f2eee9;
     margin: 20px;
     padding: 40px;
@@ -46,23 +44,23 @@
     border-right: 5px solid #FD9C1A;
 }
 
-#login-form label{
+#register-form label{
     font-style: italic;
 }
 
-#login-form h2 {
+#register-form h2 {
     padding-bottom: 10px;
     font-family: Audiowide;
 }
 
-#login-button {
+#register-button {
     background-color: #212529;
     color: white;
     border: 3px solid #FD9C1A;
     font-weight: bold;
 }
 
-#login-button:hover {
+#register-button:hover {
     background-color: #FD9C1A;
     border: 3px solid #212529;
     color: black;
@@ -72,7 +70,7 @@
     font-size: 16px;
 }
 
-#gotoregister{
+#gotologin {
     color: #FD9C1A;
 }
 
@@ -80,7 +78,11 @@ h2 {
     text-align: center;
 }
 
-#result-login {
+#stars {
+    color: #FD9C1A;
+}
+
+#result-register {
     color: red;
     font-style: italic;
 }

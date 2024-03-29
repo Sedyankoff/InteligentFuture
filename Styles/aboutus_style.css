@@ -32,7 +32,7 @@ main {
 }
 
 .bg-image {
-    background-image: url('./images/bgint1.png');
+    background-image: url('../images/bgint1.png');
     background-size: cover;
     margin: 0px;
     padding: 0px;
@@ -54,24 +54,12 @@ main {
     background-color: #FD9C1A;
 }
 
-.nav .nav-item .nav-link {
-    background-color: #121B27;
-    color: #FD9C1A;
-}
-
 .navbar-nav .nav-item .nav-link:hover {
     color: black !important;
 }
 
 .nav .nav-item a {
     font-weight: bold;
-}
-
-#main-text p {
-    border-left: 3px solid #121B27;
-    padding-left: 5px;
-    font-size: 18px;
-    font-style: italic;
 }
 
 .footer-content i {
@@ -108,16 +96,31 @@ main {
     border-bottom: 5px solid #FD9C1A;
 }
 
-#logo img{
-    border: 5px solid #FD9C1A;
+.row h2{
+    border-bottom: solid 3px #FD9C1A;
+    padding: 15px;
 }
 
-#nav-priem{
+#trophy p{
+    text-align: left;
+    border-left: solid 3px #212529;
+    padding-left: 5px;
+}
+
+.row img {
+    border: solid 5px #FD9C1A;
+}
+
+#trophy-image img {
+    border: solid 5px #212529;
+}
+
+#nav-aboutus{
     background-color: #FD9C1A;
     color: #212529 !important;
 }
 
-#nav-priem:hover{
+#nav-aboutus:hover{
     color: white !important;
     background-color: #212529;
 }

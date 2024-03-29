@@ -32,7 +32,7 @@ main {
 }
 
 .bg-image{
-    background-image: url('./images/bgint1.png');
+    background-image: url('../images/bgint1.png');
     background-size: cover;
     margin: 0px;
     padding: 0px;
