@@ -34,10 +34,18 @@ main {
 .bg-image{
     background-image: url('../images/bgint1.png');
     background-size: cover;
+    background-position: center;
     margin: 0px;
     padding: 0px;
     height: 55vh;
     width: 100%;
+}
+
+#headings {
+    background-color: rgba(33, 37, 41, 0.75);
+    border-top: 3px solid #FD9C1A;
+    border-bottom: 3px solid #FD9C1A;
+    color: #f2eee9;
 }
 
 .navbar-nav{

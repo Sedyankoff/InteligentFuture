@@ -36,14 +36,12 @@ main {
 #title {
     font-size: 50px;
     font-family: 'Audiowide', sans-serif;
-    color: #212529;
 }
 
 #slogan {
     font-style: italic;
     font-size: 20px;
     font-weight: bold;
-    color: #212529;
 }
 
 #category {
@@ -54,11 +52,18 @@ main {
 .bg-image {
     background-image: url('../images/bgint1.png');
     background-size: cover;
+    background-position: center;
     margin: 0;
     padding: 0;
     height: 55vh;
     width: 100%;
-    color: white;
+}
+
+#headings {
+    background-color: rgba(33, 37, 41, 0.75);
+    border-top: 3px solid #FD9C1A;
+    border-bottom: 3px solid #FD9C1A;
+    color: #f2eee9;
 }
 
 .navbar {
@@ -334,4 +339,40 @@ input[type="number"]::-webkit-outer-spin-button {
 #teacherList li {
     margin: 5px 0;
     font-size: 16px;
+}
+
+@media (max-width: 1250px) {
+    .category-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .dropdown {
+        flex-basis: 33%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 936px) {
+    .category-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .dropdown {
+        flex-basis: 50%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 660px) {
+    .category-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .dropdown {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
 }
