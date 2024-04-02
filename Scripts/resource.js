@@ -317,7 +317,6 @@ function displayEvents() {
 displayEvents();
 
 function deleteEvent(eventId) {
-    const events = JSON.parse(localStorage.getItem("events")) || [];
     let eventIndex = events.findIndex((event) => event.id === eventId);
 
     if (eventIndex !== -1) {
